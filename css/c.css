@@ -1,0 +1,10 @@
+.c{
+    font-family: "Fira Code";
+    font-size: 20px;
+    color:white;
+    text-align: left;
+    white-space: pre;
+    padding: 20px;
+
+    background-color: rgb(38, 38, 38);
+}
