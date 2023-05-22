@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <html>
     <head>
@@ -11,38 +10,48 @@
     </head>
     <body>
         <!--Zaglavlje stranice-->
-       <div class="zaglavlje">
-           <img src="slike/c.png" style="width: 50px; vertical-align: middle;">
-           <h1 style="display: inline-block; vertical-align: middle;">C Programski Jezik</h1>
-       </div>
+    <div class="zaglavlje">
+        <img src="slike/c.png" style="width: 50px; vertical-align: middle;">
+        <h1 style="display: inline-block; vertical-align: middle;">C Programski Jezik</h1>
+    </div>
 
-       <!--Izbornik stranice-->
-       <div class="izbornik">
-           <a href="#">Početna</a>
-           <a href="#">Osnovni koncepti</a>
-           <a href="#">Složeni koncepti</a>
-           <a href="#">Primjeri</a>
-           <a href="#" style="float: right;">O autoru</a>
-       </div>
+    <!--Izbornik stranice-->
+    <div class="izbornik">
+        <a href="index.html">Početna</a>
+        <a href="stranice/osnove.html">Osnovni koncepti</a>
+        <a href="stranice/slozeno.html">Složeni koncepti</a>
+        <a href="stranice/primjeri.html">Primjeri</a>
+        <a href="stranice/opis.html" style="float: right;">O autoru</a>
+        <a href="resursi/resursi.html" style="float: right;">Resursi</a>
+    </div>
 
-       <!--Glavni sadržaj stranice-->
-       <div class="centar">
-           <p>Test!</p>
-           <div class="c">
-               #include <stdio.h>
+    <!--Glavni sadržaj stranice-->
+    <div class="centar">
+        <p> 
+            C programski jezik je jedan od najpoznatijih i najkorištenijih programskih jezika na svijetu. 
+            Stvorio ga je David Ritchie 1972. i do dan danas se koristi, većinom u implementaciji operacijskih 
+            sustava.
+        </p>
+        <div class="polovi">
+            <div class="lijevo c" style="width: fit-content;">
+#include &lt;stdio.h&gt;
 
-               int main(void){
-                   printf("Pozdrav!\n");
-                   return 0;
-               }
-           </div>
-       </div>
+int main(void){
+    printf("Hello, world\n");
+    return 0;
+}
+            </div>
+            <div class="desno" style="width: fit-content;">
+                <p>Klasnični primjer "Hello, World" programa u C-u.</p>
+            </div>
+        </div>
+    </div>
 
-       <!--Podnožje stranice-->
-       <div class="podnozje">
-           <p>Pavličević Eugen</p>
-           <p>Tehnička Škola Kutina - 3F</p>
-           <p>školska godina: 2022./2023.</p>
-       </div>
+    <!--Podnožje stranice-->
+    <div class="podnozje">
+        <p>Pavličević Eugen</p>
+        <p>Tehnička Škola Kutina - 3F</p>
+        <p>školska godina: 2022./2023.</p>
+    </div>
     </body>
 </html>

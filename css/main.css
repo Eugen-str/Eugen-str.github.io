@@ -39,7 +39,6 @@ body{
     background-color: rgb(240, 130, 130);
 }
 
-
 .centar{
     margin: 20px;
     padding-left: 50px;
@@ -50,9 +49,24 @@ body{
     color: black;
 }
 
+.polovi{
+    display: flex;
+    width: 100%;
+}
+.polovi .lijevo{
+    float: left;
+    width: 60%;
+}
+.polovi .desno{
+    float: left;
+    width: 40%;
+    margin-left: 20px;
+}
+
 .podnozje{
     background-color: rgb(255, 66, 66);
     padding: 10px;
+    border-top: 5px groove rgb(149, 0, 0);
 }
 
 .podnozje p{

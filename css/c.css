@@ -1,4 +1,6 @@
 .c{
+    display: inline-block;
+
     font-family: "Fira Code";
     font-size: 20px;
     color:white;
@@ -6,5 +8,8 @@
     white-space: pre;
     padding: 20px;
 
-    background-color: rgb(38, 38, 38);
+    border-radius: 2.5%;
+    border: 2px solid black;
+
+    background-color: rgb(54, 52, 52);
 }
