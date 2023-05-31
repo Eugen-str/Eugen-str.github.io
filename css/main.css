@@ -1,21 +1,28 @@
 body{
     margin:0;
     background-color: rgb(250, 250, 250);
-    font-family: "Fira Code";
     padding: 0px; /* 0px  --  isprobaj 10px poslije */
 }
 
 * {
     box-sizing: border-box;
+    font-family: "Fira Code";
 }
 
 .zaglavlje{
+    display: inline-block; 
+    vertical-align: middle;
     background-color: white;
     display: block;
     padding-left: 30px;
 
     text-align: left;
     font-size: 25px;
+}
+
+.zaglavlje h1{
+    display: inline-block; 
+    vertical-align: middle;
 }
 
 .izbornik{
@@ -64,6 +71,7 @@ body{
 }
 
 .podnozje{
+    font-weight: bold;
     background-color: rgb(255, 66, 66);
     padding: 10px;
     border-top: 5px groove rgb(149, 0, 0);

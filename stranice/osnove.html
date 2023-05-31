@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Osnovni koncepti</title>
+        <link rel="stylesheet" href="../css/ostalo.css">
+        <link rel="stylesheet" href="../css/c.css">
+        <link href='https://fonts.googleapis.com/css?family=Fira Code' rel='stylesheet'>
+    </head>
+    <body>
+        <div class="zaglavlje">
+            <h1>Osnovni koncepti</h1>
+        </div>
+        <div class="izbornik">
+            <a href="../index.html">Početna</a>
+            <a href="../stranice/osnove.html">Osnovni koncepti</a>
+            <a href="../stranice/slozeno.html">Složeni koncepti</a>
+            <a href="../stranice/primjeri.html">Primjeri</a>
+            <a href="../stranice/opis.html" style="float: right;">O autoru</a>
+            <a href="../resursi/resursi.html" style="float: right;">Resursi</a>
+        </div>
+
+        <div class="centar">
+            <h2>Tipovi podataka</h2>
+            <hr>
+            <div class="polovi">
+                <div class="lijevo" style="width: 50%;">
+                    <table style="width: 90%;">
+                        <tr>
+                            <th>Ključna riječ</th>
+                            <th>Opis</th>
+                            <th>Format</th>
+                            <th>Kapacitet</th>
+                        </tr>
+                        <tr>
+                            <td>int</td>
+                            <td>Cijeli broj s predznakom</td>
+                            <td>%d</td>
+                            <td>4B</td>
+                        </tr>
+                        <tr>
+                            <td>char</td>
+                            <td>ASCII znak</td>
+                            <td>%c</td>
+                            <td>1B</td>
+                        </tr>
+                        <tr>
+                            <td>float</td>
+                            <td>Broj s pomičnim zarezom, tj. realan broj prema IEEE 754 standardu</td>
+                            <td>%f</td>
+                            <td>4B</td>
+                        </tr>
+                        <tr>
+                            <td>double</td>
+                            <td>Broj s pomičnim zarezom, prema IEEE 754 stadardu - sa duplo većom preciznosti od float</td>
+                            <td>%c</td>
+                            <td>8B</td>
+                        </tr>
+                        <tr>
+                            <td>long</td>
+                            <td>Cijeli broj s predznakom</td>
+                            <td>%li %ld %Ld</td>
+                            <td>8B</td>
+                        </tr>
+                        <tr>
+                            <td>short</td>
+                            <td>Cijeli broj s predznakom</td>
+                            <td>%hi %hd</td>
+                            <td>2B</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="desno" style="width: 50%;">
+                    <table style="width: 90%;">
+                        <tr>
+                            <th>Druge ključne riječi</th>
+                            <th>Opis</th>
+                            <th>Format</th>
+                            <th>Kapacitet</th>
+                        </tr>
+                        <tr>
+                            <td>long</td>
+                            <td>Specificira da se produlji raspon, tj. kapacitet int ili double formata</td>
+                            <td>%li %ld %Ld</td>
+                            <td>8B</td>
+                        </tr>
+                        <tr>
+                            <td>short</td>
+                            <td>Specificira da se smanji raspon, tj. kapacitet int formata</td>
+                            <td>%hi %hd</td>
+                            <td>8B</td>
+                        </tr>
+                        <tr>
+                            <td>unsigned</td>
+                            <td>Mijenja raspon sa [-2^n, 2^(n-1)-1] na [0, 2^n-1]</td>
+                            <td>%u</td>
+                            <td>8B</td>
+                        </tr>
+                        <tr>
+                            <td>signed</td>
+                            <td>Mijenja raspon sa [0, 2^n-1] na [-2^n, 2^(n-1)-1]</td>
+                            <td>%li %ld %Ld</td>
+                            <td>8B</td>
+                        </tr>
+                    </table>
+                    <p>
+                        Ove ključne riječi se mogu koristiti zajedno npr.
+                    </p>
+                    <div class="c">
+unsigned short int a;
+printf("%d", sizeof(a));
+                    </div>
+                    <div class="c">
+output:
+2
+                    </div>
+                    <p>
+                        sizeof() funkcija vraća broj koliko bajtova zauzima varijabla u memoriji. Varijabla a je tipa unsigned short int, gdje int označuje cijeli broj, short
+                        označuje da će se raspon smanjiti sa [-2 147 483 647, 2 147 483 647] na [-32 767, 32 767], a unsigned konačno govori da se ne koristi negativni dio raspona,
+                        pa dobivamo konačan raspon [0, 65 535]. 
+                    </p>
+                </div>
+            </div>
+            <br><br><br>
+            <h2>Osnovne funkcije</h2>
+            <hr>
+            <table>
+                <tr>
+                    <th>Ime funkcije</th>
+                    <th>Opis funkcije</th>
+                </tr>
+                <tr>
+                    <td>printf()</td>
+                    <td>Ispisuje nešto u terminal</td>
+                </tr>
+            </table>
+            <h2>Petlje</h2>
+            <hr>
+            <h2>Polja i nizovi</h2>
+            <hr>
+        </div>
+
+        <div class="podnozje">
+            <p>Pavličević Eugen</p>
+            <p>Tehnička Škola Kutina - 3F</p>
+            <p>školska godina: 2022./2023.</p>
+        </div>
+    </body>
+</html>
