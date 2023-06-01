@@ -5,6 +5,16 @@
         <link rel="stylesheet" href="../css/ostalo.css">
         <link rel="stylesheet" href="../css/c.css">
         <link href='https://fonts.googleapis.com/css?family=Fira Code' rel='stylesheet'>
+
+        <style>
+            .lista a{
+                text-decoration:underline;
+                font-size: 23px;
+            }
+            .lista{
+                list-style:inside;
+            }
+        </style>
     </head>
     <body>
         <div class="zaglavlje">
@@ -20,9 +30,103 @@
         </div>
 
         <div class="centar">
-            <table>
-                
-            </table>
+            <h2>Izbornik primjera</h2>
+            <ul class="lista">
+                <li><a href="#gol">"Game of Life"</a></li>
+                <li><a href="#TEST">TEST</a></li>
+            </ul>
+            <p>Svi primjeri napravljeni su samostalno.</p>
+            
+            <hr>
+
+            <h2 id="gol">"Game Of Life"</h2>
+            <hr>
+            <p>Moj primjer "Game of Life" simulatora u C-u.</p>
+            <div class="c">
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;string.h&gt;
+
+#define SIRINA 30
+#define VISINA 15
+
+#define ZIV '#'
+#define MRTAV '.'
+
+char polje[VISINA*SIRINA];
+
+void pocetno_stanje(char *polje){
+    for(int i = 0; i &lt; SIRINA*VISINA; ++i){
+        polje[i] = MRTAV;
+    }
+}
+
+void nacrtaj_polje(char *polje){
+    system("clear");
+    for(int i = 0; i &lt; SIRINA*VISINA; ++i){
+        if(i%SIRINA==0) printf("\n");
+        printf("%c ",polje[i]);
+    }
+    printf("\n\n");
+}
+
+int susjedi(char *polje, int pos){
+    int n = 0;
+
+    for(int i = -1; i &lt; 2; ++i){
+        if(polje[pos+i] == ZIV && pos+i &gt;= 0 && pos+i &lt;= SIRINA*VISINA && pos+i != pos) n++;
+        if(polje[pos+i+SIRINA] == ZIV && pos+i+SIRINA &gt;= 0 && pos+i+SIRINA &lt;= SIRINA*VISINA) n++;
+        if(polje[pos+i-SIRINA] == ZIV && pos+i-SIRINA &gt;= 0 && pos+i-SIRINA &lt;= SIRINA*VISINA) n++;
+    }
+
+    return n;
+}
+
+char sljedeca_gen(char *polje, int pos){
+    char cell = polje[pos];
+
+    if(polje[pos] == MRTAV && susjedi(polje, pos) == 3) cell = ZIV;
+    else{
+        if(susjedi(polje, pos) &lt; 2) cell = MRTAV;
+        if(susjedi(polje, pos) &gt; 3) cell = MRTAV;
+    }
+    return cell;
+}
+
+void osvjezi_polje(char *polje){
+    char old_field[SIRINA*VISINA];
+    strcpy(old_field, polje);
+
+    for(int i = 0; i&lt;SIRINA*VISINA; ++i){
+        polje[i] = sljedeca_gen(old_field, i);
+    }
+}
+
+int main(void){
+    pocetno_stanje(polje);
+
+    //Glider
+    polje[SIRINA+SIRINA/2] = ZIV;
+    polje[2*SIRINA+SIRINA/2+1] = ZIV;
+    polje[3*SIRINA+SIRINA/2+1] = ZIV;
+    polje[3*SIRINA+SIRINA/2] = ZIV;
+    polje[3*SIRINA+SIRINA/2-1] = ZIV;
+
+    while(true){
+        
+        nacrtaj_polje(polje);
+
+        osvjezi_polje(polje);
+
+        getchar();
+    }
+    return 0;
+}
+            </div>
+            <br>
+            <h2 id="TEST">TEST</h2>
+
         </div>
 
         <div class="podnozje">
