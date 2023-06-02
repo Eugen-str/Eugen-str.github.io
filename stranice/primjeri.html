@@ -5,16 +5,6 @@
         <link rel="stylesheet" href="../css/ostalo.css">
         <link rel="stylesheet" href="../css/c.css">
         <link href='https://fonts.googleapis.com/css?family=Fira Code' rel='stylesheet'>
-
-        <style>
-            .lista a{
-                text-decoration:underline;
-                font-size: 23px;
-            }
-            .lista{
-                list-style:inside;
-            }
-        </style>
     </head>
     <body>
         <div class="zaglavlje">
@@ -38,10 +28,19 @@
             <p>Svi primjeri napravljeni su samostalno.</p>
             
             <hr>
-
+            <br>
             <h2 id="gol">"Game Of Life"</h2>
             <hr>
-            <p>Moj primjer "Game of Life" simulatora u C-u.</p>
+            <p>U ovom primjeru, napravio sam Game of Life simulator koji kao primjer generira i pokazuje
+            kako se kreće "<a href="https://conwaylife.com/wiki/Glider" target="_blank">Glider</a>".</p>
+            <p>Za više informacija posjetite <a href="https://conwaylife.com/wiki/">wiki stranicu za Game of Life</a>.</p>
+            
+            <div>
+                <video autoplay loop muted>
+                    <source src="../mediji/gol.mp4" type="video/mp4">
+                </video>
+            </div>
+
             <div class="c">
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
@@ -63,47 +62,54 @@ void pocetno_stanje(char *polje){
 }
 
 void nacrtaj_polje(char *polje){
-    system("clear");
+    system("clear"); //samo za linux sustave - system("cls") za windows
     for(int i = 0; i &lt; SIRINA*VISINA; ++i){
-        if(i%SIRINA==0) printf("\n");
+        if(i%SIRINA==0)
+            printf("\n");
         printf("%c ",polje[i]);
     }
     printf("\n\n");
 }
 
-int susjedi(char *polje, int pos){
+int susjedi(char *polje, int poz){
     int n = 0;
 
     for(int i = -1; i &lt; 2; ++i){
-        if(polje[pos+i] == ZIV && pos+i &gt;= 0 && pos+i &lt;= SIRINA*VISINA && pos+i != pos) n++;
-        if(polje[pos+i+SIRINA] == ZIV && pos+i+SIRINA &gt;= 0 && pos+i+SIRINA &lt;= SIRINA*VISINA) n++;
-        if(polje[pos+i-SIRINA] == ZIV && pos+i-SIRINA &gt;= 0 && pos+i-SIRINA &lt;= SIRINA*VISINA) n++;
+        if(polje[poz+i] == ZIV && poz+i &gt;= 0 && poz+i &lt;= SIRINA*VISINA && poz+i != poz) 
+            n++;
+        if(polje[poz+i+SIRINA] == ZIV && poz+i+SIRINA &gt;= 0 && poz+i+SIRINA &lt;= SIRINA*VISINA) 
+            n++;
+        if(polje[poz+i-SIRINA] == ZIV && poz+i-SIRINA &gt;= 0 && poz+i-SIRINA &lt;= SIRINA*VISINA) 
+            n++;
     }
 
     return n;
 }
 
-char sljedeca_gen(char *polje, int pos){
-    char cell = polje[pos];
+char sljedeca_gen(char *polje, int poz){
+    char celija = polje[pos];
 
-    if(polje[pos] == MRTAV && susjedi(polje, pos) == 3) cell = ZIV;
+    if(polje[poz] == MRTAV && susjedi(polje, poz) == 3) 
+        celija = ZIV;
     else{
-        if(susjedi(polje, pos) &lt; 2) cell = MRTAV;
-        if(susjedi(polje, pos) &gt; 3) cell = MRTAV;
+        if(susjedi(polje, poz) &lt; 2) 
+            celija = MRTAV;
+        if(susjedi(polje, poz) &gt; 3) 
+            celija = MRTAV;
     }
-    return cell;
+    return celija;
 }
 
 void osvjezi_polje(char *polje){
-    char old_field[SIRINA*VISINA];
-    strcpy(old_field, polje);
+    char prosla_gen[SIRINA*VISINA];
+    strcpy(prosla_gen, polje);
 
     for(int i = 0; i&lt;SIRINA*VISINA; ++i){
-        polje[i] = sljedeca_gen(old_field, i);
+        polje[i] = sljedeca_gen(prosla_gen, i);
     }
 }
 
-int main(void){
+int main(int argv, char *argc){
     pocetno_stanje(polje);
 
     //Glider
@@ -124,9 +130,9 @@ int main(void){
     return 0;
 }
             </div>
-            <br>
-            <h2 id="TEST">TEST</h2>
-
+            
+            <h2 id="TEST" style="padding-top: 50px;">TEST</h2>
+            <hr>
         </div>
 
         <div class="podnozje">

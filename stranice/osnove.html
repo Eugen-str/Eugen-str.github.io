@@ -39,8 +39,8 @@
                         </tr>
                         <tr>
                             <td>char</td>
-                            <td>ASCII znak</td>
-                            <td>%c</td>
+                            <td>ASCII znak. Riječi, rečenice tj. skupovi znakova tretiraju se kao niz char-ova.</td>
+                            <td>%c %s</td>
                             <td>1B</td>
                         </tr>
                         <tr>
@@ -67,7 +67,14 @@
                             <td>%hi %hd</td>
                             <td>2B</td>
                         </tr>
+                        <tr>
+                            <td>bool (stdbool.h)</td>
+                            <td>Može poprimiti vrijednost true ili false, što se ispisuje kao 1 ili 0.</td>
+                            <td>%d</td>
+                            <td>1B</td>
+                        </tr>
                     </table>
+                    <p>Header stdint.h dodaje nekoliko specifičnijih formata, na primjer int8_t - int koji zauzima 1B, uint16_t - unsigned int koji zauzima 2B...</p>
                 </div>
                 <div class="desno" style="width: 50%;">
                     <table style="width: 90%;">
@@ -98,7 +105,7 @@
                         </tr>
                     </table>
                     <p>
-                        Ove ključne riječi se mogu koristiti zajedno npr.
+                        Ove ključne riječi se mogu koristiti zajedno, na primjer:
                     </p>
                     <div class="c">
 unsigned short int a;
@@ -109,7 +116,7 @@ output:
 2
                     </div>
                     <p>
-                        sizeof() funkcija vraća broj koliko bajtova zauzima varijabla u memoriji. Varijabla a je tipa unsigned short int, gdje int označuje cijeli broj, short
+                        sizeof() funkcija vraća broj koliko bajtova zauzima varijabla u memoriji. Varijabla a je tipa unsigned short int, gdje int označuje 4B cijeli broj, short
                         označuje da će se raspon smanjiti sa [-2 147 483 647, 2 147 483 647] na [-32 767, 32 767], a unsigned konačno govori da se ne koristi negativni dio raspona,
                         pa dobivamo konačan raspon [0, 65 535]. 
                     </p>
