@@ -20,8 +20,14 @@
         </div>
 
         <div class="centar">
-            <h2>Tipovi podataka</h2>
-            <hr>
+            <h2>Izbornik</h2>
+            <ul class="lista">
+                <li><a href="#tipovi">Tipovi podataka</a></li>
+                <li><a href="#petlje">Petlje</a></li>
+                <li><a href="#polja">Polja i nizovi</a></li>
+                <li><a href="#funkcije">Stvaranje funkcija</a></li>
+            </ul>
+            <h2 id="tipovi">Tipovi podataka</h2> <hr>
             <div class="polovi">
                 <div class="lijevo" style="width: 50%;">
                     <table style="width: 90%;">
@@ -122,23 +128,69 @@ output:
                     </p>
                 </div>
             </div>
-            <br><br><br>
-            <h2>Osnovne funkcije</h2>
-            <hr>
-            <table>
-                <tr>
-                    <th>Ime funkcije</th>
-                    <th>Opis funkcije</th>
-                </tr>
-                <tr>
-                    <td>printf()</td>
-                    <td>Ispisuje nešto u terminal</td>
-                </tr>
-            </table>
-            <h2>Petlje</h2>
-            <hr>
-            <h2>Polja i nizovi</h2>
-            <hr>
+            <h2 id="petlje">Petlje</h2><hr>
+            <div>
+                <p>
+                    Postoje tri petlje u C-u:
+                    <ul>
+                        <li>for</li>
+                        <li>while</li>
+                        <li>do while</li>
+                    </ul>
+                    Moguće je sa bilo kojom petljom dobiti isti rezultat, ali su neke prikladnije za određene zadatke. 
+                    <h3>For</h3> <hr class="manji">
+                    Sintaksa for petlje: for(ekspresija 1; ekspresija 2; ekspresija 3) <br><br>
+                    ekspresija 1 - izvršava se jednom prije početka petlje <br>
+                    ekspresija 2 - definira kondiciju za ponavljanje <br>
+                    ekspresija 3 - izvršava se svaki put kada se petlja ponavlja
+                    <br><br>
+                    na primjer:
+                    <br><br>
+                    <div class="c">
+for(int i = 0; i &lt; 20; i++){
+    printf("%d\n", i);
+}
+                    </div>
+                    <br><br><br>
+                    <h3>While</h3> <hr class="manji">
+                    
+                    Sintaksa while petlje je otprilike ista kao for petlje, samo se ekspresije stavljaju na druga mjesta.
+                    <br><br>
+                    while(ekspresija) <br>
+                    Ekspresija unutar zagrada je ista stvar kao i druga ekspresija for petlje, petlja će se ponavljati sve dok je istinita.
+                    <br><br>
+                    prošli primjer napravljen s while petljom:
+                    <br><br>
+                    <div class="c">   
+int i = 0;
+while(i &lt; 20){
+    printf("%d\n", i);
+    i++;
+}
+                    </div>
+                    <br><br><br>
+                    <h3>Do-While</h3> <hr class="manji">
+                    Do/while petlja je varijanta while petlje. Ova petlja će izvršiti blok koda jednom prije 
+                    provjere je li uvjet istinit, a zatim će ponavljati petlju sve dok je uvjet istinit.
+                    <br>
+                    Često se koristi u provjeri unosa, kada želimo ponavljati unos sve dok ne zadovoljava uvjete.
+                    U tom je slučaju do-while petlja prikladnija jer smo sigurni da će se izvršiti barem jednom.
+                    <br><br>
+                    primjer:
+                    <br><br>
+                    <div class="c">
+int a;
+printf("Unesi broj manji od 6 i veći od 0.\n");
+do{
+    scanf("%d", &a);
+    if(a &lt; 0 || a &gt; 5)
+        printf("Pogrešan unos.\n");
+}while(a &lt; 0 || a &gt; 5);
+                    </div>
+                </p>
+            </div>
+            <h2 id="polja">Polja i nizovi</h2> <hr>
+            <h2 id="funkcije">Stvaranje funkcija</h2> <hr>
         </div>
 
         <div class="podnozje">

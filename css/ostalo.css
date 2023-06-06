@@ -8,6 +8,17 @@ body{
     font-family: "Fira Code";
 }
 
+h2{
+    padding-top: 4dvh;
+}
+
+hr{
+    border: 1px solid black;
+}
+.manji{
+    border: 1px solid gray;
+}
+
 .zaglavlje{
     display: inline-block; 
     background-color: white;
