@@ -190,7 +190,67 @@ do{
                 </p>
             </div>
             <h2 id="polja">Polja i nizovi</h2> <hr>
+            <div>
+                <p>
+                    Nizovi omogućuju pohranu skupa podataka u jednu varijablu. <br>
+                    Označuju se sa [] nakon imena varijable, gdje u zagrade možemo staviti broj elemenata ili ostaviti prazne ako ih odmah definiramo.
+                    <br><br>
+                    primjer korištenja nizova za pohranu stringa:
+                    
+                    <div class="polovi">
+                        <div class="lijevo c" style="width: fit-content;">
+char ime[] = "Eugen";
+
+for(int i = 0; i < 3; i++){
+    printf("%c", ime[i]);
+}
+                        </div>
+                        <div class="desno" style="width: auto;">
+                            Za indeksiranje svakog elementa koristimo varijablu i u for petlji kako bi prošli kroz sve elemente niza. 
+                            <br><br>
+                            Zbog pojednostavljanja printanja stringova, u C je uvedena funkcija puts(*char) koja bez petlje printa niz znakova.
+                        </div>
+                    </div>
+                    <br><br>
+                    Polja su n-dimenzijonalni nizovi, gdje je n bilo koji prirodan broj. <br>
+                    <br>
+                    Za stvaranje dvodimenzionalne matrice, stavljamo dva para zagrada [][], gdje svak služi za indeksiranje jedne "dimenzije".
+                    <br><br>
+                    <div class="c">
+int matrica[2][2] = &#123;{1,2}, {3,4}&#125;;
+
+for(int i = 0; i < 2; i++){
+    for(int j = 0; j < 2; j++){
+        printf("%d ", matrica[i][j]); 
+    }
+}
+                    </div>
+                </p>
+            </div>
             <h2 id="funkcije">Stvaranje funkcija</h2> <hr>
+            <p>
+                C omogućuje stvaranje funkcija. 
+                <br>
+                Osnovna sintaksa funkcije izgleda ovako: <br>
+                <div class="polovi">
+                    <div class="lijevo c" style="width: fit-content;">      
+tip_podatka ime_funkcije (tip_argumenta ime_argumenta, ...){
+    definicija_funkcije;
+    return povratni_podatak;
+}
+                    </div>
+                    <div class="desno" style="width: auto;">
+                        Broj argumenta nije ograničen. 
+                        <br>
+                        Nizovi se ne daju kao argument te također ne mogu biti povratni podatak, već se mijenjaju na način da kao argument
+                        damo pokazivač na niz u memorij, koji se onda mijenja unutar funkcije ako je to potrebno.
+                        <br>
+                        Funkcija može biti i bez povratnog podatka, u kojem se slučaju koristi "void" kao tip podatka, i ne stavlja se return.
+                        <br>
+                    </div>
+                </div>
+                <br><br>
+            </p>
         </div>
 
         <div class="podnozje">
