@@ -2,9 +2,9 @@
 <html>
     <head>
         <title>Složeni koncepti</title>
-        <link rel="stylesheet" href="../css/ostalo.css">
+        <link rel="stylesheet" href="../css/main.css">
         <link rel="stylesheet" href="../css/c.css">
-        <link href='https://fonts.googleapis.com/css?family=Fira Code' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Fira Code' rel="stylesheet">
     </head>
     <body>
         <div class="zaglavlje">
@@ -15,18 +15,177 @@
             <a href="../stranice/osnove.html">Osnovni koncepti</a>
             <a href="../stranice/slozeno.html">Složeni koncepti</a>
             <a href="../stranice/primjeri.html">Primjeri</a>
-            <a href="../stranice/opis.html" style="float: right;">O autoru</a>
+            <a href="../autor/opis.html" style="float: right;">O autoru</a>
             <a href="../resursi/resursi.html" style="float: right;">Resursi</a>
         </div>
 
         <div class="centar">
-            <h2>Pokazivači</h2> <hr>
-            <h2>Strukture</h2> <hr>
-            <h3>Pokazivači na elemente struktura</h3> <hr class="manji">
-            <h2>Enumeracije</h2> <hr>
-            <h2>Header datoteke</h2> <hr>
-            <h2>Pre-procesorske instrukcije</h2> <hr>
+            <h3>Izbornik</h3>
+            <ul class="lista">
+                <li><a href="#pok">Pokazivači</a></li>
+                <li><a href="#struct">Strukture</a></li>
+                <li><a href="#proc">Pre-procesorske instrukcije</a></li>
+            </ul>
+            <hr>
+            <h2 id="pok">Pokazivači</h2> <hr>
+            <div>
+                <p>
+                    Sa pokazivačima dobivamo memorijsku adresu varijable u memoriji.
+                    <br>
+                    Pointer varijabla pokazuje na podatak istog tipa, deklarira se s * operatorom.
+                    "Pokazivanje" na lokaciju u memoriji se često zove "refrenciranje".
+                    <br>
+                    Pokazivač možemo isprintati sa %p formatom.
+                    <br><br>
+                    primjer (pokazivač koji refrencira svoju memorijsku lokaciju):
+                    <div class="polovi" style="width: fit-content;">
+                        <div class="lijevo c">
+int* pt = &amp;pt;
+printf("%p", pt);
+                        </div>
+                        <div class="desno c">
+output:
+0x7fff3669ae64
+                        </div>
+                    </div>
+                    <br>
+                    (0x označuje heksadekadski zapis)
+                    <br><br>
+                    <h3>Derefrenciranje</h3><hr class="manji"><br>
+                    Derefrenciranje je suprotno od refrenciranja - uzimamo memorijsku lokaciju memorije, tj. 
+                    pokazivač i gledamo šta se nalazi na toj lokaciji.<br>
+
+                    Za dereferenciranje se također koristi * operator.<br><br>
+                    primjer: <br><br>
+                    <div class="polovi">
+                        <div class="lijevo c" style="width: fit-content;">
+float test = 12.3;
+float* p = &amp;test;
+
+printf("%p\n", p);
+printf("%f", *p);
+                        </div>
+                        <div class="desno c" style="width: fit-content;">
+output:
+0x7fff5aecf744
+12.300000
+                        </div>
+                    </div>
+                </p>
+            </div>
+            <h2 id="struct">Strukture</h2> <hr>
+            <div>
+                <p>
+                    Strukture su način grupiranja više vezanih varijabli bilo kojeg tipa.
+                    <br><br>
+                    primjer: <br>
+                    <div class="polovi">
+                        <div class="lijevo c" style="width: fit-content;">
+struct tocka{
+    int x;
+    int y;
+};
+
+int main(){
+    struct tocka t1;
+    t1.x = 15;
+}
+                        </div>
+                        <div class="desno" style="width: fit-content;">
+                            Definiramo strukturu "tocka" (izvan main funkcije), ključnom riječi struct koja sadrži
+                            dva elementa - X koordinatu i Y koordinatu neke točke. 
+                            <br><br>
+                            Unutar main funkcije deklariramo točku t1 i operatorom . dodajemo vrijednost X
+                            koordinati te točke.
+                        </div>
+                    </div>
+                    <br><br>
+                    Strukture mogu kao elemente imati i druge strukture. U sljedećem primjeru stvaramo strukturu
+                    vektor koja sadrži dvije točke - t1 i t2 koje označuju krajnje točke vektora. Ako želimo 
+                    napraviti nešto slično konstruktorima u objektno-orjentiranom programiranju, 
+                    samo napravimo funkciju koja vraća strukturu - u ovom slučaju funkcija vektorKonstr uzima
+                    dvije točke i vraća vektor.
+                    <br><br>
+                    <div class="c">
+struct tocka{
+    int x;
+    int y;
+};
+
+struct vektor{
+    struct tocka a;
+    struct tocka b;
+};
+
+struct tocka vektorKonstr(struct tocka t1, struct tocka t2){
+    struct vektor pom;
+
+    pom.a = t1;
+    pom.b = t2;
+    
+    return pom;
+}
+
+int main(){
+    struct tocka p1 = { 1, 2 };
+    struct tocka p2 = { 3, 4 };
+
+    struct vektor v = vektorKonstr(p1, p2);
+    return 0;
+}
+                       
+                    </div>
+                </p>
+            </div>
+            <h2 id="proc">Pre-procesorske instrukcije</h2> <hr>
+            <div>
+                <p>
+                    C pruža određene jezične mogućnosti pomoću pretprocesora, kako bi se obavile određene operacije prije 
+                    same kompilacije programa. Dvije najčešće korištene značajke su #include, koji kopira
+                    sadržaj datoteke tijekom kompilacije i #define, za stvaranje makro definicija.
+                    <div class="polovi">
+                        <div class="lijevo c" style="width: auto;">
+#include &lt;stdio.h&gt;
+#include "ime.h"
+                        </div>
+                        <div class="desno" style="width: auto;">
+                            Primjer korištenja include preprocesorke instrukcije za korištenje funkcija
+                            iz navednih datoteka. Navodnici se stavljaju kada se radi o header datoteci
+                            unutar trenutnog direktorija, a <> kada se radi o standardnim C bibliotekama.
+                            <br>
+                            Include instrukcija samo kopira sadržaj datoteke tijekom kompilacije.
+                        </div>
+                    </div>
+                    <div class="polovi">
+                        <div class="lijevo" style="width: auto;">
+                            <br>
+                            #define omogućuje stvaranje <a href="https://en.wikipedia.org/wiki/Macro_(computer_science)">makro definicija</a> unutar programa.
+                            Makro definicije nisu varijable i ne mogu se mijenjati programskim kodom 
+                            poput varijabli. Ova sintaksa se općenito koristi kada stvaramo konstante 
+                            koje predstavljaju brojeve, nizove ili izraze.
+                            <br><br>
+                            Primjeri desno prikazuju beskonačnu petlju, nazvanu "zauvijek", broj PI i MAX makro
+                            instrukcije. Pri kompilaciji, gdjegod koristimo ove makroe će se umjesto njih samo
+                            kopirati njihove definicije.
+                        </div>
+                        <div class="desno c">
+#define zauvijek for(int i = 0 ;; i++)
+#define PI 3.14159
+#define MAX(a, b) ((a) > (b) ? (a) : (b))
+
+int main(){
+    zauvijek{
+        printf("\n%d", i);
+    }
+    return 0;
+}
+                        </div>
+                    </div>
+                </p>
+            </div>
         </div>
+
+        <button class="naVrh"><a href="#">Na vrh</a></button>
 
         <div class="podnozje">
             <p>Pavličević Eugen</p>

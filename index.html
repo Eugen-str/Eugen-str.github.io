@@ -6,53 +6,70 @@
         <title>C Programski Jezik</title>
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/c.css">
-        <link href='https://fonts.googleapis.com/css?family=Fira Code' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Fira Code' rel="stylesheet">
     </head>
     <body>
-    <!--Zaglavlje stranice-->
-    <div class="zaglavlje">
-        <img src="mediji/c.png" style="width: 50px; vertical-align: middle;">
-        <h1>C Programski Jezik</h1>
-    </div>
+        
+        <div class="zaglavlje">
+            <img src="mediji/c.png" style="width: 50px; vertical-align: middle;">
+            <h1>C Programski Jezik</h1>
+        </div>
 
-    <!--Izbornik stranice-->
-    <div class="izbornik">
-        <a href="index.html">Početna</a>
-        <a href="stranice/osnove.html">Osnovni koncepti</a>
-        <a href="stranice/slozeno.html">Složeni koncepti</a>
-        <a href="stranice/primjeri.html">Primjeri</a>
-        <a href="stranice/opis.html" style="float: right;">O autoru</a>
-        <a href="resursi/resursi.html" style="float: right;">Resursi</a>
-    </div>
+        
+        <div class="izbornik">
+            <a href="index.html">Početna</a>
+            <a href="stranice/osnove.html">Osnovni koncepti</a>
+            <a href="stranice/slozeno.html">Složeni koncepti</a>
+            <a href="stranice/primjeri.html">Primjeri</a>
+            <a href="autor/opis.html" style="float: right;">O autoru</a>
+            <a href="resursi/resursi.html" style="float: right;">Resursi</a>
+        </div>
 
-    <!--Glavni sadržaj stranice-->
-    <div class="centar">
-        <p> 
-            C programski jezik je jedan od najpoznatijih i najkorištenijih programskih jezika na svijetu. 
-            Stvorio ga je David Ritchie 1972. i do dan danas se koristi, većinom u implementaciji operacijskih 
-            sustava.
-        </p>
-        <div class="polovi">
-            <div class="lijevo c" style="width: fit-content;">
+        
+        <div class="centar">
+            <p> 
+                C programski jezik je jedan od najpoznatijih i najkorištenijih programskih jezika na svijetu. 
+                Stvorio ga je David Ritchie 1972. i do dan danas se koristi, većinom u implementaciji operacijskih 
+                sustava.
+            </p>
+            <div class="polovi">
+                <div class="lijevo c" style="width: fit-content;">
 #include &lt;stdio.h&gt;
 
 int main(void){
     printf("Hello, world\n");
     return 0;
 }
+                </div>
+                <div class="desno" style="width: auto;">
+                    <p>
+                        Klasnični primjer "Hello, World" programa u C-u.
+                        <br><br>
+                        C je programski jezik niske razine, što omogućuje programerima blisku 
+                        interakciju s hardverom i upravljanje memorijom. 
+                        <br><br>
+                        Kao strukturirani jezik, podržava modularnost i organizaciju programa u 
+                        funkcije, omogućavajući ponovno korištenje koda i olakšavanje razvoja aplikacija.
+                    </p>
+                </div>
             </div>
-            <div class="desno">
-                <p>Klasnični primjer "Hello, World" programa u C-u.</p>
-            </div>
+            <p>
+                C je imperativni jezik, što znači da programer navodi točno što 
+                želi da program izvrši, koristeći naredbe za dodjelu vrijednosti varijablama, 
+                grananja (if-else, switch) i petlji (for, while).
+                <br><br>
+                Za razliku od objektno orijentiranih jezika kao 
+                što su Java ili C#, C se fokusira na programiranje gdje je naglasak na 
+                izravnim instrukcijama i manipulaciji promjenjivim podacima, 
+                bez ugrađene podrške za objekte i njihove koncepte.
+            </p>
         </div>
-        <h2></h2>
-    </div>
 
-    <!--Podnožje stranice-->
-    <div class="podnozje">
-        <p>Pavličević Eugen</p>
-        <p>Tehnička Škola Kutina - 3F</p>
-        <p>školska godina: 2022./2023.</p>
-    </div>
+        
+        <div class="podnozje" style="position: fixed; bottom: 0; width: 100%;">
+            <p>Pavličević Eugen</p>
+            <p>Tehnička Škola Kutina - 3F</p>
+            <p>školska godina: 2022./2023.</p>
+        </div>
     </body>
 </html>
